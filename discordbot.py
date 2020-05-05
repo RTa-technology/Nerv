@@ -40,6 +40,6 @@ async def d(ctx, tenki: str):
     for f in resp['forecasts']:
         msg += f['dateLabel'] + "が" + f['telop'] + "\n"
         msg += "です。"
-    await ctx.send(message.author.mention + msg)
+    await ctx.send(msg)
 
 bot.run(token)
