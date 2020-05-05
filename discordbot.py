@@ -2,9 +2,10 @@ import discord
 import urllib.request
 import json
 import re
+import os
 
 client = discord.Client()
-token = "NzA3Mjk1ODE0MjU0NTkyMDQy.XrGuoA.ICQVLi2BnLlHfbaotl-x2rSS440"
+token = os.environ['DISCORD_BOT_TOKEN']
 
 citycodes = {
     "土浦": '080020',
