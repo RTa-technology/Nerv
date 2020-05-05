@@ -20,7 +20,7 @@ async def ping(ctx):
     embed.set_image(url=er['map'])
     await ctx.send(embed=embed)
 
-def e():
+async def e():
     xml_data_module = requests.get('https://www3.nhk.or.jp/sokuho/jishin/data/JishinReport.xml')
     xml_data_module.encoding = "Shift_JIS"
     root = ET.fromstring(xml_data_module.text)
@@ -49,7 +49,7 @@ def e():
         map = map_url + Detail.text
         edic = {'time': time, 'epicenter': Epicenter, "intensity": Intensity, "depth": Depth, "magnitude": Magnitude, "map": map, "icon": eicon(Intensity), "color": eicolor(Intensity), 'e_1': e_1}
         return edic
-def eicon(i):
+async def eicon(i):
     if i == '1':
         return('https://i.imgur.com/yalXlue.png')
     elif i == '2':
