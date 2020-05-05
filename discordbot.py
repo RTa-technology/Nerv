@@ -3,22 +3,23 @@ import discord
 import os
 import traceback
 import xml.etree.ElementTree as ET
+from discord.ext import commands
 
-client = discord.Client()
+client = commands.Bot(command_prefix='#')
 token = os.environ['DISCORD_BOT_TOKEN']
-@client.event
-async def on_message(message):
-    if message.content == '!zishin':
-        er = e()
-        embed = discord.Embed(title='**地震情報**', description='', color=er['color'])
-        embed.set_thumbnail(url=er['icon'])
-        embed.add_field(name='発生時刻', value=er['time'], inline=True)
-        embed.add_field(name='震源地', value=er['epicenter'], inline=True)
-        embed.add_field(name='最大震度', value=er['intensity'], inline=True)
-        embed.add_field(name='マグニチュード', value=er['magnitude'], inline=True)
-        embed.add_field(name='震度1以上を観測した地域', value=er['e_1'], inline=False)
-        embed.set_image(url=er['map'])
-        await message.channel.send(embed=embed)
+@client.command(name="jishin")
+async def ping(ctx):
+    er = e()
+    embed = discord.Embed(title='**地震情報**', description='', color=er['color'])
+    embed.set_thumbnail(url=er['icon'])
+    embed.add_field(name='発生時刻', value=er['time'], inline=True)
+    embed.add_field(name='震源地', value=er['epicenter'], inline=True)
+    embed.add_field(name='最大震度', value=er['intensity'], inline=True)
+    embed.add_field(name='マグニチュード', value=er['magnitude'], inline=True)
+    embed.add_field(name='震度1以上を観測した地域', value=er['e_1'], inline=False)
+    embed.set_image(url=er['map'])
+    await ctx.send(embed=embed)
+
 def e():
     xml_data_module = requests.get('https://www3.nhk.or.jp/sokuho/jishin/data/JishinReport.xml')
     xml_data_module.encoding = "Shift_JIS"
