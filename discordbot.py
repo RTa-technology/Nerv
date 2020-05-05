@@ -14,12 +14,12 @@ async def on_ready():
     # CHANNEL_ID = 706950934013673562 チャンネルID(AT)  
     CHANNEL_ID = 706969662516101181#チャンネルID(AT)  
     channel = bot.get_channel(CHANNEL_ID)  
-    await channel.send("Nervちゃん参上!")
+    await channel.send("Nervちゃん参上ですっ!")
 
 
 @bot.command(name="w")
 async def d(ctx, tenki: str):
-    """!d {n}d{n}の書式で入力(合計表示のみ)"""
+    """/w {都市名}"""
     if tenki == "仙台":
         resp = urllib.request.urlopen('http://weather.livedoor.com/forecast/webservice/json/v1?city=040010').read()
     elif tenki =="東京":
