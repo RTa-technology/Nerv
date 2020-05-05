@@ -4,7 +4,7 @@ import traceback
 import requests
 import xml.etree.ElementTree as ET
 
-client = commands.Bot(command_prefix='/')
+client = commands.client(command_prefix='/')
 token = os.environ['DISCORD_BOT_TOKEN']
 
 @client.event
