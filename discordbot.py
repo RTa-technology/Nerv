@@ -31,7 +31,7 @@ async def d(ctx, tenki: str):
     elif tenki =="大阪":
         resp = urllib.request.urlopen('http://weather.livedoor.com/forecast/webservice/json/v1?city=270000').read()
     elif tenki =="岡山":
-        resp = urllib.request.urlopen('http://weather.livedoor.com/forecast/webservice/json/v1?city=340010').read()
+        resp = urllib.request.urlopen('http://weather.livedoor.com/forecast/webservice/json/v1?city=330010').read()
     elif tenki =="広島":
         resp = urllib.request.urlopen('http://weather.livedoor.com/forecast/webservice/json/v1?city=340010').read()    
     resp = json.loads(resp.decode('utf-8'))
