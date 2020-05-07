@@ -23,9 +23,10 @@ async def on_ready():
 async def on_message(message):
     a_id = message.author.id
     if a_id == nerv_id:
-        test1 = message.embeds[0].fields[2].name + ":" + message.embeds[0].fields[2].value
-        test2 = message.embeds[0].fields[3].name + ":" + message.embeds[0].fields[3].value
-        await message.channel.send(f"{test1}\n{test2}")
+        magnitude = message.embeds[0].fields[2].value
+        quake_intensity = message.embeds[0].fields[3].value
+        if magnitude < 4 or quake_intensity <= 3:
+            await bot.delete_message(message)
 
 
   
