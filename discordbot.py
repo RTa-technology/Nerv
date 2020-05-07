@@ -27,13 +27,13 @@ async def on_message(message):
         if "地震" in title:
             quake_intensity = message.embeds[0].fields[3].value
             if quake_intensity == "5弱":
-                break
+                await message.channel.send("震度5弱です危険です！")
             elif quake_intensity == "5強":
-                break
+                await message.channel.send("震度5強です危険です")
             elif quake_intensity == "6弱":
-                break
+                await message.channel.send("震度6弱です危険です")
             elif quake_intensity == "6強":
-                break
+                await message.channel.send("震度6強です危険です")
             else:
                 quake_intensity = int(quake_intensity)
                 if quake_intensity < 4:
