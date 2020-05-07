@@ -9,7 +9,7 @@ from discord.ext import commands as rta
 bot = rta.Bot(command_prefix='/')#, help_command=JapaneseHelpCommand()
 token = os.environ['DISCORD_BOT_TOKEN']
 
-nerv = 707295814254592042
+nerv_id = 707295814254592042
 
 @bot.event
 async def on_ready():
