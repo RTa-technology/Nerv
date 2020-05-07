@@ -23,19 +23,21 @@ async def on_ready():
 async def on_message(message):
     a_id = message.author.id
     if a_id == nerv_id:
-        quake_intensity = message.embeds[0].fields[3].value
-        if quake_intensity == "5弱":
-            break
-        elif quake_intensity == "5強":
-            break
-        elif quake_intensity == "6弱":
-            break
-        elif quake_intensity == "6強":
-            break
-        else:
-            quake_intensity = int(quake_intensity)
-            if quake_intensity < 4:
-                await message.delete()
+        title = message.embeds[0].title
+        if "地震" in title:
+            quake_intensity = message.embeds[0].fields[3].value
+            if quake_intensity == "5弱":
+                break
+            elif quake_intensity == "5強":
+                break
+            elif quake_intensity == "6弱":
+                break
+            elif quake_intensity == "6強":
+                break
+            else:
+                quake_intensity = int(quake_intensity)
+                if quake_intensity < 4:
+                    await message.delete()
 
   
 
