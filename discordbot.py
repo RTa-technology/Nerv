@@ -23,8 +23,9 @@ async def on_ready():
 async def on_message(message):
     a_id = message.author.id
     if a_id == nerv_id:
-        test = message.embeds[0].fields[3].value
-        await message.channel.send(test)
+        test1 = message.embeds[0].fields[2].name + ":" + message.embeds[0].fields[2].value
+        test2 = message.embeds[0].fields[3].name + ":" + message.embeds[0].fields[3].value
+        await message.channel.send(f"{test1}\n{test2}")
 
 
   
