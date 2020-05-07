@@ -19,7 +19,7 @@ async def on_ready():
     await channel.send("Nervちゃん参上ですっ!")
 
 
-@client.event
+@bot.event
 async def on_message(message):
     a_id = message.author.id
     if a_id == nerv_id:
