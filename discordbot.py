@@ -23,7 +23,7 @@ async def on_ready():
 async def on_message(message):
     a_id = message.author.id
     if a_id == nerv_id:
-        test = message.embeds[3].fields
+        test = message.embeds[0].fields[3].value
         await message.channel.send(test)
 
 
