@@ -26,7 +26,7 @@ async def on_message(message):
         magnitude = message.embeds[0].fields[2].value
         quake_intensity = message.embeds[0].fields[3].value
         if magnitude < 4 or quake_intensity <= 3:
-            await bot.delete_message(message)
+            await message.delete()
 
 
   
