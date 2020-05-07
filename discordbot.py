@@ -23,11 +23,9 @@ async def on_ready():
 async def on_message(message):
     a_id = message.author.id
     if a_id == nerv_id:
-        magnitude = message.embeds[0].fields[2].value
         quake_intensity = message.embeds[0].fields[3].value
-        magnitude = int(magnitude)
         quake_intensity = int(quake_intensity)
-        if magnitude < 4 or quake_intensity < 4:
+        if quake_intensity < 4:
             await message.delete()
 
   
