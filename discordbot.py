@@ -9,6 +9,8 @@ from discord.ext import commands as rta
 bot = rta.Bot(command_prefix='/')#, help_command=JapaneseHelpCommand()
 token = os.environ['DISCORD_BOT_TOKEN']
 
+nerv = 707295814254592042
+
 @bot.event
 async def on_ready():
     # CHANNEL_ID = 706950934013673562 チャンネルID(AT)  
@@ -16,6 +18,16 @@ async def on_ready():
     channel = bot.get_channel(CHANNEL_ID)  
     await channel.send("Nervちゃん参上ですっ!")
 
+
+@client.event
+async def on_message(message):
+    a_id = message.author.id
+    if a_id == nerv_id:
+        test = message.embeds[0].description
+        await message.channel.send(test)
+
+
+  
 
 @bot.command(name="w")
 async def d(ctx, tenki: str):
