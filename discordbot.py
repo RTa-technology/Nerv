@@ -16,7 +16,7 @@ async def on_ready():
     # CHANNEL_ID = 706950934013673562 チャンネルID(AT)  
     CHANNEL_ID = 706969662516101181#チャンネルID(AT)  
     channel = bot.get_channel(CHANNEL_ID)  
-    await channel.send("Nervちゃん参上ですっ!")
+    await channel.send("[bot]Nervちゃん参上ですっ!")
 
 
   
@@ -39,7 +39,8 @@ async def d(ctx, tenki: str):
     elif tenki =="広島":
         resp = urllib.request.urlopen('http://weather.livedoor.com/forecast/webservice/json/v1?city=340010').read()    
     resp = json.loads(resp.decode('utf-8'))
-    msg = resp['location']['city']
+    msg = "[bot]"
+    msg += resp['location']['city']
     msg += "の天気は、\n"
     for f in resp['forecasts']:
         msg += f['dateLabel'] + "が" + f['telop'] + "\n"
@@ -53,21 +54,22 @@ async def d(ctx, tenki: str):
 async def on_message(message):
     a_id = message.author.id
     if a_id == nerv_id:
-        title = message.embeds[0].title
-        if "地震" in title:
-            quake_intensity = message.embeds[0].fields[3].value
-            if quake_intensity == "5弱":
-                await message.channel.send("震度5弱です危険です！")
-            elif quake_intensity == "5強":
-                await message.channel.send("震度5強です危険です")
-            elif quake_intensity == "6弱":
-                await message.channel.send("震度6弱です危険です")
-            elif quake_intensity == "6強":
-                await message.channel.send("震度6強です危険です")
-            else:
-                quake_intensity = int(quake_intensity)
-                if quake_intensity < 4:
-                    await message.delete()
+        if not message.content.startswith("[bot]"):
+            title = message.embeds[0].title
+            if "地震" in title:
+                quake_intensity = message.embeds[0].fields[3].value
+                if quake_intensity == "5弱":
+                    await message.channel.send("震度5弱です危険です！")
+                elif quake_intensity == "5強":
+                    await message.channel.send("震度5強です危険です")
+                elif quake_intensity == "6弱":
+                    await message.channel.send("震度6弱です危険です")
+                elif quake_intensity == "6強":
+                    await message.channel.send("震度6強です危険です")
+                else:
+                    quake_intensity = int(quake_intensity)
+                    if quake_intensity < 4:
+                        await message.delete()
 
     
     
