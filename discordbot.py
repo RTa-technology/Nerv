@@ -1,6 +1,4 @@
 import discord
-import urllib.request
-import json
 import re
 import os
 
@@ -21,30 +19,7 @@ async def on_ready():
 
   
 
-@bot.command(name="w")
-async def d(ctx, tenki: str):
-    """/w {都市名}"""
-    if tenki == "仙台":
-        resp = urllib.request.urlopen('http://weather.livedoor.com/forecast/webservice/json/v1?city=040010').read()
-    elif tenki =="東京":
-        resp = urllib.request.urlopen('http://weather.livedoor.com/forecast/webservice/json/v1?city=130010').read()
-    elif tenki =="横浜":
-        resp = urllib.request.urlopen('http://weather.livedoor.com/forecast/webservice/json/v1?city=140010').read()
-    elif tenki =="名古屋":
-        resp = urllib.request.urlopen('http://weather.livedoor.com/forecast/webservice/json/v1?city=230010').read()
-    elif tenki =="大阪":
-        resp = urllib.request.urlopen('http://weather.livedoor.com/forecast/webservice/json/v1?city=270000').read()
-    elif tenki =="岡山":
-        resp = urllib.request.urlopen('http://weather.livedoor.com/forecast/webservice/json/v1?city=330010').read()
-    elif tenki =="広島":
-        resp = urllib.request.urlopen('http://weather.livedoor.com/forecast/webservice/json/v1?city=340010').read()    
-    resp = json.loads(resp.decode('utf-8'))
-    msg = "[bot]" + resp['location']['city']
-    msg += "の天気は、\n"
-    for f in resp['forecasts']:
-        msg += f['dateLabel'] + "が" + f['telop'] + "\n"
-        msg += "です。"
-    await ctx.send(msg)
+
 
 
 
