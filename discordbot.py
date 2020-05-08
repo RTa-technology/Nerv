@@ -39,8 +39,7 @@ async def d(ctx, tenki: str):
     elif tenki =="広島":
         resp = urllib.request.urlopen('http://weather.livedoor.com/forecast/webservice/json/v1?city=340010').read()    
     resp = json.loads(resp.decode('utf-8'))
-    msg = "[bot]"
-    msg += resp['location']['city']
+    msg = "[bot]" + resp['location']['city']
     msg += "の天気は、\n"
     for f in resp['forecasts']:
         msg += f['dateLabel'] + "が" + f['telop'] + "\n"
