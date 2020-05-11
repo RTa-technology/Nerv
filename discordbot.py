@@ -27,7 +27,7 @@ async def on_ready():
 @bot.event
 async def on_message(message):
     a_id = message.author.id
-    if message.channel.id == 707325308331622470:
+    if message.channel.id == 707325308331622470 or message.channel.id == 707530329535021076:
         if a_id == nerv_id:
             if not message.content.startswith("[bot]"):
                 title = message.embeds[0].title
