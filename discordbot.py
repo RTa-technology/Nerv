@@ -37,20 +37,8 @@ async def on_message(message):
     if message.channel.id == 708044782366097478:
         if a_id == nerv_id:
             title = message.embeds[0].title
-            if "地震" in title:
-                area = message.embeds[0].fields[0].value
-                if info_area_exp in area or info_area_kinki in area or info_area_kanto in area:
-                    quake_intensity = message.embeds[0].fields[3].value
-                    if quake_intensity == "5弱":
-                        await info.send("震度5弱です危険です！")
-                    elif quake_intensity == "5強":
-                        await info.send("震度5強です危険です")
-                    elif quake_intensity == "6弱":
-                        await info.send("震度6弱です危険です")
-                    elif quake_intensity == "6強":
-                        await info.send("震度6強です危険です")
-                    else:
-                        await info.send("@everyone 試し")
+            area = message.embeds[0].fields[0].value
+            await info.send(area)
     
     
     
