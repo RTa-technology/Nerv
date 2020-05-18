@@ -38,7 +38,8 @@ async def on_message(message):
         if a_id == nerv_id:
             title = message.embeds[0].title
             area = message.embeds[0].fields[0].value
-            await info.send(area)
+            if info_area_exp in area or info_area_kinki in area or info_area_kanto in area:
+                await info.send(area)
     
     
     
