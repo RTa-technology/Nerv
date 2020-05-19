@@ -29,7 +29,9 @@ async def on_ready():
 @bot.event
 async def on_message(message):
     info_ID = 706969662516101181
+    info2_ID = 685034886935216148
     info = bot.get_channel(info_ID)
+    info2 = bot.get_channel(info2_ID)
     a_id = message.author.id
     if message.channel.id == 708044782366097478:
         if a_id == nerv_id:
@@ -47,5 +49,7 @@ async def on_message(message):
                     await info.send("震度6強です危険です")
                 else:
                     await info.send("@everyone 試し")
+            else:
+                await info2.send("試し")
                     
 bot.run(token)
