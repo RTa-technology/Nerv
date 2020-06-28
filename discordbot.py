@@ -6,7 +6,6 @@ from discord.ext import commands as rta
 
 bot = rta.Bot(command_prefix='/')#, help_command=JapaneseHelpCommand()
 token = os.environ['DISCORD_BOT_TOKEN']
-
 nerv_id = 329257498668302346
 
 @bot.event
