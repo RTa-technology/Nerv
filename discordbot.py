@@ -56,6 +56,6 @@ async def on_message(message):
                     await info.send("@everyone 震度7です危険です！！")
                     await info2.send("@everyone 震度7です危険です！！")
                 else:
-                    await info3.send("@everyone 試し")
+#                    await info3.send("@everyone 試し")
                     
 bot.run(token)
